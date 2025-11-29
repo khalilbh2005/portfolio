@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khalil | Portfolio Premium</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Khalil<span>.</span></div>
+        <ul class="nav-links">
+            <li><a href="#home">Accueil</a></li>
+            <li><a href="#about">À propos</a></li>
+            <li><a href="#skills">Compétences</a></li>
+            <li><a href="#projects">Projets</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="burger">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+    <header id="home" class="hero-slider">
+        <div class="slide active">
+            <div class="slide-bg" style="background-image: url('assets/images/acceuil/image1.jpg');"></div>
+            <div class="slide-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-accent-line"></div>
+                <h1 class="hero-title">L'esprit d'équipe<br>avant <span class="highlight-text">tout.</span></h1>
+                <p class="hero-subtitle">Membre actif d'une communauté dynamique et engagée.</p>
+                <a href="#contact" class="btn-gold">Me Contacter</a>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('assets/images/acceuil/image2.jpg');"></div>
+            <div class="slide-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-accent-line"></div>
+                <h1 class="hero-title">Au cœur de<br><span class="highlight-text">l'événement.</span></h1>
+                <p class="hero-subtitle">Participation à des conférences majeures.</p>
+                <a href="#projects" class="btn-gold">Mes projets</a>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('assets/images/acceuil/image3.jpg');"></div>
+            <div class="slide-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-accent-line"></div>
+                <h1 class="hero-title">Prêt pour le<br><span class="highlight-text">futur.</span></h1>
+                <p class="hero-subtitle">Développement de solutions concrètes.</p>
+                <a href="#skills" class="btn-gold">Compétences</a>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('assets/images/acceuil/image4.jpg');"></div>
+            <div class="slide-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-accent-line"></div>
+                <h1 class="hero-title">Partager et<br><span class="highlight-text">Convaincre.</span></h1>
+                <p class="hero-subtitle">Leadership et communication.</p>
+                <a href="#about" class="btn-gold">À propos</a>
+            </div>
+        </div>
+        <div class="slide">
+            <div class="slide-bg" style="background-image: url('assets/images/acceuil/image5.jpg');"></div>
+            <div class="slide-overlay"></div>
+            <div class="hero-content">
+                <div class="hero-accent-line"></div>
+                <h1 class="hero-title">Innovation<br><span class="highlight-text">en action.</span></h1>
+                <p class="hero-subtitle">Démonstration technique de projets.</p>
+                <a href="#contact" class="btn-gold">Me contacter</a>
+            </div>
+        </div>
+
+        <div class="slider-nav">
+            <div class="dot active" onclick="manualSlide(0)"></div>
+            <div class="dot" onclick="manualSlide(1)"></div>
+            <div class="dot" onclick="manualSlide(2)"></div>
+            <div class="dot" onclick="manualSlide(3)"></div>
+            <div class="dot" onclick="manualSlide(4)"></div>
+        </div>
+    </header>
+
+    <section id="about"><h2>À propos</h2><p>Contenu...</p></section>
+    <section id="skills"><h2>Compétences</h2><p>Contenu...</p></section>
+    <section id="projects"><h2>Projets</h2><p>Contenu...</p></section>
+
+    <section id="contact" class="contact-section">
+        <div class="contact-container">
+            <div class="col-left">
+                <div class="light-beam"></div>
+                <img src="assets/images/hero/Khalilou.png" alt="Khalil Ben Hamza" class="portrait-img">
+            </div>
+
+            <div class="col-right">
+                <div class="form-header">
+                    <h1>Entrons en contact.</h1>
+                    <p>Une opportunité ? Discutons-en.</p>
+                </div>
+
+                <form action="https://formsubmit.co/m.khalilbenhamza@gmail.com" method="POST" class="glass-form">
+                    <input type="hidden" name="_next" value="https://ton-site.com/merci.html">
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Nom & Prénom</label>
+                            <input type="text" name="name" placeholder="John Doe" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Type</label>
+                            <select name="type">
+                                <option>Entreprise</option>
+                                <option>Individu</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" name="email" placeholder="email@exemple.com" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Message</label>
+                        <textarea name="message" placeholder="Votre message..." required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Envoyer</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-container">
+            
+            <div class="footer-col">
+                <h3 class="footer-title">Navigation</h3>
+                <ul class="footer-links">
+                    <li><a href="#home">Accueil</a></li>
+                    <li><a href="#about">À propos</a></li>
+                    <li><a href="#skills">Compétences</a></li>
+                    <li><a href="#projects">Projets</a></li>
+                    <li><a href="#experiences">Expériences</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-title">Informations</h3>
+                <ul class="contact-info">
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path><polyline points="22,6 12,13 2,6"></polyline></svg>
+                        <a href="mailto:m.khalilbenhamza@gmail.com">m.khalilbenhamza@gmail.com</a>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.12 2h3a2 2 0 0 1 2 1.72 12.05 12.05 0 0 0 .57 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.05 12.05 0 0 0 2.81.57A2 2 0 0 1 22 16.92z"></path></svg>
+                        <a href="tel:+33644701144">+33 6 44 70 11 44</a>
+                    </li>
+                    <li>
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+                        <span>Paris, Île-de-France</span>
+                    </li>
+                    <li class="status-badge">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path><circle cx="12" cy="7" r="4"></circle></svg>
+                        <span>Étudiant en BUT — <span style="color:var(--soft-gold); font-weight:600;">Recherche d'alternance</span></span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="footer-col">
+                <h3 class="footer-title">Réseaux sociaux</h3>
+                <div class="social-icons">
+                    <a href="https://github.com/khalilbh2005" target="_blank" class="social-btn github">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                    </a>
+                    <a href="https://www.linkedin.com/in/khalil-ben-hamza-240b241a2/" target="_blank" class="social-btn linkedin">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                    </a>
+                    <a href="#" class="social-btn portfolio-pdf" title="Télécharger CV">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="16" y1="13" x2="8" y2="13"></line><line x1="16" y1="17" x2="8" y2="17"></line><polyline points="10 9 9 9 8 9"></polyline></svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>Développé avec passion par <span class="gold-text">Khalil Ben Hamza</span> — © 2025</p>
+        </div>
+    </footer>
+    <script src="js/slider.js"></script>
+</body>
+</html>

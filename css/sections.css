@@ -1,0 +1,103 @@
+/* =========================================
+   -----------------
+   ========================================= */
+   /* =========================================
+   STYLE SPÉCIFIQUE SECTION À PROPOS (PREMIUM)
+   ========================================= */
+
+/* Structure de la section */
+.about-premium-section {
+    position: relative;
+    padding-top: 80px;
+    padding-bottom: 120px;
+    overflow: hidden; /* Important pour les débordements 3D */
+}
+
+/* 1. Hero About Styles */
+.about-hero-block { text-align: center; max-width: 900px; margin: 0 auto 80px auto; }
+.hero-about-title { font-size: 3rem; font-weight: 800; margin-bottom: 20px; color: var(--white); }
+.hero-about-title .dot { color: var(--electric-blue); }
+.gold-separator { width: 80px; height: 4px; background: var(--soft-gold); margin: 0 auto 30px auto; border-radius: 2px; box-shadow: 0 0 15px var(--soft-gold); }
+.hero-lead { font-size: 1.15rem; font-weight: 300; opacity: 0.9; line-height: 1.8; }
+
+/* 2. Bio Glass Card */
+.glass-card-about {
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+    padding: 30px;
+}
+.bio-card { max-width: 900px; margin: 0 auto 100px auto; border-left: 4px solid var(--electric-blue); }
+.bio-content { display: flex; gap: 20px; }
+.quote-icon { font-size: 3rem; color: var(--soft-gold); font-family: serif; opacity: 0.6; line-height: 1; }
+
+/* 3. Qualities */
+.qualities-container { text-align: center; margin-bottom: 120px; }
+.sub-title { font-size: 2rem; font-weight: 800; margin-bottom: 50px; display: inline-block; }
+.neon-text { background: linear-gradient(to right, var(--electric-blue), var(--magenta)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+
+.qualities-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 20px; max-width: 1000px; margin: 0 auto; }
+.quality-card {
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.05); border-radius: 16px; padding: 25px;
+    transition: 0.4s; cursor: default;
+}
+.quality-card:hover { transform: translateY(-10px); background: rgba(255,255,255,0.08); border-color: var(--electric-blue); box-shadow: 0 0 20px rgba(41, 107, 255, 0.2); }
+.icon-box { font-size: 2rem; margin-bottom: 10px; }
+
+/* 4. Timeline Premium (Wave + Flip) */
+.timeline-premium-wrapper { position: relative; max-width: 1000px; margin: 0 auto 100px auto; padding: 50px 0; text-align: center; min-height: 1100px; }
+.timeline-wave { position: absolute; top: 100px; left: 50%; transform: translateX(-50%); width: 100px; height: 90%; z-index: 0; opacity: 0.5; pointer-events: none; }
+.wave-path { stroke-dasharray: 1000; stroke-dashoffset: 1000; transition: stroke-dashoffset 2s ease; }
+.timeline-premium-wrapper.visible .wave-path { stroke-dashoffset: 0; }
+
+/* Flip Cards Logic */
+.flip-card-container { perspective: 1000px; width: 320px; height: 300px; margin: 40px auto; position: relative; z-index: 2; }
+/* Placement alterné autour de la vague */
+@media screen and (min-width: 900px) {
+    .flip-card-container:nth-of-type(1) { margin-right: 55%; } /* Gauche */
+    .flip-card-container:nth-of-type(2) { margin-left: 55%; }  /* Droite */
+    .flip-card-container:nth-of-type(3) { margin-right: 50%; } /* Gauche */
+}
+
+.flip-card { position: relative; width: 100%; height: 100%; text-align: center; transition: transform 0.8s; transform-style: preserve-3d; cursor: pointer; }
+.flip-card.flipped { transform: rotateY(180deg); }
+
+.flip-card-front, .flip-card-back {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden; /* Cache le dos */
+    display: flex; flex-direction: column; justify-content: center; align-items: center;
+    padding: 20px; border-radius: 20px;
+}
+
+.flip-card-back { transform: rotateY(180deg); background: rgba(10,10,10,0.95); border: 1px solid var(--soft-gold); }
+
+.card-icon-top { font-size: 2.5rem; margin-bottom: 10px; }
+.flip-card h4 { font-size: 1.2rem; color: var(--white); margin-bottom: 5px; }
+.badge-gold { background: var(--soft-gold); color: #000; padding: 4px 10px; border-radius: 12px; font-weight: 700; font-size: 0.75rem; margin-bottom: 8px; }
+.badge-blue { background: var(--electric-blue); color: #fff; padding: 4px 10px; border-radius: 12px; font-weight: 700; font-size: 0.75rem; margin-bottom: 8px; }
+.active-border { border-color: var(--soft-gold); box-shadow: 0 0 15px rgba(255, 216, 117, 0.1); }
+.click-hint { font-size: 0.7rem; color: var(--electric-blue); margin-top: auto; opacity: 0.7; }
+.back-list { text-align: left; list-style: disc; padding-left: 20px; font-size: 0.9rem; color: #ddd; }
+
+/* 5. Search & Vision */
+.about-footer-block { max-width: 900px; margin: 0 auto; text-align: center; }
+.search-container { padding: 50px; margin-bottom: 80px; }
+.search-container h3 { font-size: 1.8rem; margin-bottom: 20px; color: var(--white); }
+.highlight-sentence { color: var(--soft-gold); font-size: 1.2rem; font-weight: 600; margin-top: 15px; }
+.glow-border { animation: glowPulse 4s infinite; }
+@keyframes glowPulse { 0% { border-color: rgba(255,255,255,0.1); } 50% { border-color: var(--electric-blue); } 100% { border-color: rgba(255,255,255,0.1); } }
+
+.vision-content p { font-size: 1.4rem; font-weight: 300; font-style: italic; opacity: 0.9; }
+.vision-line { width: 100px; height: 1px; background: var(--soft-gold); margin: 30px auto; }
+
+/* Animations Scroll Reveal */
+.scroll-reveal { opacity: 0; transform: translateY(40px); transition: all 0.8s ease-out; }
+.scroll-reveal.visible { opacity: 1; transform: translateY(0); }
+.fade-in-up { animation: fadeInUp 1s forwards; }
+/* Point coloré pour les titres (sans cercle) */
+.text-dot {
+    color: var(--electric-blue);
+    font-weight: inherit; /* Garde le gras du titre */
+}

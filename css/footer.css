@@ -1,0 +1,233 @@
+/* =========================================
+   6. FOOTER
+   ========================================= */
+/* =========================================
+   FOOTER STYLE PREMIUM
+   ========================================= */
+.footer {
+    background-color: var(--black-bg);
+    color: var(--white);
+    padding: 80px 0 30px 0;
+    position: relative;
+    border-top: 1px solid rgba(255, 216, 117, 0.1); /* Ligne subtile or */
+    overflow: hidden;
+}
+
+/* Effet de lueur diffuse en haut du footer */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--deep-violet), var(--electric-blue), transparent);
+    box-shadow: 0 0 30px 5px rgba(90, 45, 255, 0.2);
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 5%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.footer-col {
+    flex: 1;
+    min-width: 250px;
+    margin-bottom: 20px;
+}
+
+/* Titres des colonnes */
+.footer-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--white);
+    margin-bottom: 25px;
+    position: relative;
+    display: inline-block;
+}
+
+/* Petit soulignement or sous les titres */
+.footer-title::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 30px;
+    height: 3px;
+    background-color: var(--soft-gold);
+    border-radius: 2px;
+}
+
+/* Listes de liens et infos */
+.footer-links, .contact-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.footer-links li a {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+/* Effet hover liens : glissement + couleur or */
+.footer-links li a:hover {
+    color: var(--soft-gold);
+    transform: translateX(5px);
+    text-shadow: 0 0 10px rgba(255, 216, 117, 0.3);
+}
+
+/* Informations de contact */
+.contact-info li {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.contact-info svg {
+    color: var(--electric-blue);
+    flex-shrink: 0;
+}
+
+.contact-info a:hover {
+    color: var(--white);
+    text-decoration: underline;
+}
+
+/* Badge Statut étudiant */
+.status-badge {
+    margin-top: 10px;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 8px;
+    border-left: 2px solid var(--soft-gold);
+}
+
+/* Réseaux Sociaux (Icones rondes) */
+.social-icons {
+    display: flex;
+    gap: 15px;
+}
+
+.social-btn {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* Effets Hover Socials */
+.social-btn:hover {
+    transform: translateY(-5px);
+    color: var(--black-bg);
+}
+
+.social-btn.github:hover {
+    background: var(--white);
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+}
+
+.social-btn.linkedin:hover {
+    background: #0077b5;
+    border-color: #0077b5;
+    color: var(--white);
+    box-shadow: 0 0 20px rgba(0, 119, 181, 0.6);
+}
+
+.social-btn.portfolio-pdf:hover {
+    background: var(--soft-gold);
+    border-color: var(--soft-gold);
+    box-shadow: 0 0 20px rgba(255, 216, 117, 0.6);
+}
+
+/* Footer Bottom */
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    margin-top: 50px;
+    padding-top: 25px;
+    text-align: center;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+    font-family: 'Inter', sans-serif;
+}
+
+.gold-text {
+    color: var(--soft-gold);
+    font-weight: 600;
+}
+
+/* Responsive Mobile */
+@media screen and (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        gap: 40px;
+    }
+    
+    .footer-col {
+        min-width: 100%;
+        text-align: center;
+    }
+
+    .footer-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .contact-info li {
+        justify-content: center;
+    }
+    
+    .social-icons {
+        justify-content: center;
+    }
+}
+/* =========================================
+   7. RESPONSIVE MOBILE
+   ========================================= */
+@media screen and (max-width: 900px) {
+    /* Navbar Mobile */
+    .nav-links {
+        position: absolute; right: 0; top: 70px; height: 0;
+        background: var(--black-bg); flex-direction: column;
+        width: 100%; align-items: center; justify-content: center;
+        overflow: hidden; transition: height 0.5s ease;
+    }
+    .nav-links.nav-active { height: 100vh; border-top: 1px solid var(--deep-violet); }
+    .burger { display: block; }
+    
+    /* Hero */
+    .hero-title { font-size: 2.2rem; }
+    .hero-content { padding-left: 5%; padding-right: 5%; }
+    
+    /* Contact Section Mobile */
+    .contact-container { flex-direction: column; gap: 30px; }
+    .col-left { order: -1; height: 350px; width: 100%; }
+    .col-right { width: 100%; }
+    .form-row { flex-direction: column; gap: 0; }
+    .light-beam { width: 100px; }
+    
+    /* Footer */
+    .footer-col { text-align: center; }
+    .footer-title::after { left: 50%; transform: translateX(-50%); }
+    .social-icons, .contact-info li { justify-content: center; }
+}
