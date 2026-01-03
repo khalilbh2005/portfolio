@@ -13,6 +13,9 @@
     <link rel="stylesheet" href="css/contact.css">
     <link rel="stylesheet" href="css/skills.css">
     <link rel="stylesheet" href="css/excp.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script src="main.js" defer></script>
+
 </head>
 <body>
 
@@ -566,51 +569,60 @@
 </section>
 
     <section id="contact" class="contact-section">
-        <div class="contact-container">
-            <div class="col-left">
-                <div class="light-beam"></div>
-                <img src="assets/images/hero/Khalilou.png" alt="Khalil Ben Hamza" class="portrait-img">
-            </div>
+  <div class="contact-container">
+    <div class="col-left">
+      <div class="light-beam"></div>
+      <img src="assets/images/hero/Khalilou.png" alt="Khalil Ben Hamza" class="portrait-img">
+    </div>
 
-            <div class="col-right">
-                <div class="form-header">
-                    <h1>Entrons en contact.</h1>
-                    <p>Une opportunité ? Discutons-en.</p>
-                </div>
+    <div class="col-right">
+      <div class="form-header">
+        <h1>Entrons en contact.</h1>
+        <p>Une opportunité ? Discutons-en.</p>
+      </div>
 
-                <form action="https://formsubmit.co/m.khalilbenhamza@gmail.com" method="POST" class="glass-form">
-                    <input type="hidden" name="_next" value="https://ton-site.com/merci.html">
-                    <input type="hidden" name="_captcha" value="false">
-                    
-                    <div class="form-row">
-                        <div class="form-group">
-                            <label>Nom & Prénom</label>
-                            <input type="text" name="name" placeholder="John Doe" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Type</label>
-                            <select name="type">
-                                <option>Entreprise</option>
-                                <option>Individu</option>
-                            </select>
-                        </div>
-                    </div>
+      <!-- CONTACT FORM -->
+      <form id="contact-form" class="glass-form">
+        
+        <!-- Anti-spam honeypot (DO NOT STYLE / DO NOT REMOVE) -->
+        <input type="text" name="website" style="display:none">
 
-                    <div class="form-group">
-                        <label>Email</label>
-                        <input type="email" name="email" placeholder="email@exemple.com" required>
-                    </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Nom & Prénom</label>
+            <input type="text" name="name" placeholder="John Doe" required>
+          </div>
 
-                    <div class="form-group">
-                        <label>Message</label>
-                        <textarea name="message" placeholder="Votre message..." required></textarea>
-                    </div>
-
-                    <button type="submit" class="btn-submit">Envoyer</button>
-                </form>
-            </div>
+          <div class="form-group">
+            <label>Type</label>
+            <select name="type" required>
+              <option value="">Choisir</option>
+              <option value="Entreprise">Entreprise</option>
+              <option value="Individu">Individu</option>
+            </select>
+          </div>
         </div>
-    </section>
+
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="email@exemple.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Message</label>
+          <textarea name="message" placeholder="Votre message..." required></textarea>
+        </div>
+
+        <button type="submit" class="btn-submit">
+          <span class="btn-text">Envoyer</span>
+        </button>
+
+        <!-- Status message -->
+        <p id="form-status" class="form-status"></p>
+      </form>
+    </div>
+  </div>
+</section>
 
     <footer class="footer">
         <div class="footer-container">
