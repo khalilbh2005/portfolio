@@ -1,0 +1,151 @@
+/* =========================================
+   SKILLS SECTION (VISION PRO STYLE)
+   ========================================= */
+
+/* Configuration de la section */
+.skills-premium-section {
+    padding: 120px 5%;
+    background: radial-gradient(circle at 10% 50%, rgba(90, 45, 255, 0.08) 0%, transparent 50%);
+    position: relative;
+    overflow: hidden;
+}
+
+.skills-header { text-align: center; max-width: 800px; margin: 0 auto 80px auto; }
+.skills-subtitle { 
+    color: rgba(255,255,255,0.7); font-size: 1.1rem; margin-top: 20px; font-weight: 300; 
+    line-height: 1.6;
+}
+.highlight-gold { color: var(--soft-gold); text-shadow: 0 0 15px rgba(255, 216, 117, 0.3); }
+
+/* Titres de catégories */
+.skills-category-container { margin-bottom: 100px; max-width: 1200px; margin-left: auto; margin-right: auto; }
+.category-title {
+    font-size: 1.8rem; font-weight: 700; margin-bottom: 40px; text-align: center;
+    color: var(--white); font-family: 'Montserrat', sans-serif;
+    position: relative; display: inline-block; left: 50%; transform: translateX(-50%);
+}
+.category-title::after {
+    content: ''; position: absolute; bottom: -10px; left: 50%; transform: translateX(-50%);
+    width: 40px; height: 3px; background: var(--electric-blue); border-radius: 2px;
+}
+
+/* --- A) HARD SKILLS: HOLOGRAM CARDS --- */
+.holo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 30px;
+    perspective: 1000px; /* Essentiel pour la 3D */
+}
+
+.holo-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 20px;
+    padding: 30px;
+    transition: transform 0.1s ease-out, box-shadow 0.3s ease;
+    transform-style: preserve-3d;
+    cursor: default;
+    overflow: hidden;
+    /* Animation Flottante */
+    animation: floatHolo 6s ease-in-out infinite;
+}
+
+/* Décalage d'animation pour effet naturel */
+.holo-card:nth-child(even) { animation-delay: 1s; }
+.holo-card:nth-child(3) { animation-delay: 2s; }
+
+.holo-card:hover {
+    box-shadow: 0 0 30px rgba(90, 45, 255, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.05);
+    border-color: rgba(255,255,255,0.2);
+    z-index: 10;
+}
+
+/* Inner Glow Effect */
+.holo-glow {
+    position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+    background: radial-gradient(circle at 50% 0%, rgba(41, 107, 255, 0.2), transparent 70%);
+    opacity: 0.5; transition: opacity 0.3s;
+    pointer-events: none;
+}
+.holo-card:hover .holo-glow { opacity: 0.8; }
+
+.holo-content { position: relative; z-index: 2; transform: translateZ(20px); /* Texte flotte au dessus de la carte */ }
+
+.holo-icon { font-size: 2.5rem; margin-bottom: 20px; text-shadow: 0 0 15px rgba(255,255,255,0.2); }
+
+.holo-card h4 {
+    font-size: 1.3rem; margin-bottom: 20px; color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+}
+
+.skill-list { display: flex; flex-wrap: wrap; gap: 10px; }
+.tag {
+    background: rgba(41, 107, 255, 0.1);
+    border: 1px solid rgba(41, 107, 255, 0.3);
+    color: #DEE4FF;
+    padding: 6px 14px; border-radius: 20px;
+    font-size: 0.85rem; font-weight: 500;
+    transition: 0.3s;
+}
+.holo-card:hover .tag { background: rgba(41, 107, 255, 0.3); border-color: var(--electric-blue); box-shadow: 0 0 10px rgba(41, 107, 255, 0.2); }
+
+/* --- B) SOFT SKILLS: NEON PILLS --- */
+.soft-skills-grid {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;
+}
+
+.soft-card {
+    background: rgba(13, 13, 13, 0.6);
+    border: 1px solid rgba(255, 216, 117, 0.1); /* Gold subtle border */
+    padding: 15px 30px; border-radius: 50px;
+    font-size: 1rem; color: var(--white);
+    font-weight: 600; letter-spacing: 0.5px;
+    transition: 0.3s; cursor: default;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.soft-card:hover {
+    border-color: var(--soft-gold);
+    color: var(--soft-gold);
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 0 10px 25px rgba(255, 216, 117, 0.2);
+    background: rgba(255, 216, 117, 0.05);
+}
+
+/* --- C) TOOLS GRID --- */
+.tools-grid {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: 40px;
+}
+
+.tool-item {
+    display: flex; flex-direction: column; align-items: center; gap: 10px;
+    width: 100px; transition: 0.3s; opacity: 0.7;
+}
+
+.tool-item img {
+    width: 50px; height: 50px; object-fit: contain;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.1));
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.tool-item span { font-size: 0.9rem; color: var(--text-muted); transition: 0.3s; }
+
+.tool-item:hover { opacity: 1; transform: translateY(-5px); }
+.tool-item:hover img { transform: scale(1.2); filter: drop-shadow(0 0 15px rgba(41, 107, 255, 0.6)); }
+.tool-item:hover span { color: var(--white); }
+
+/* --- ANIMATIONS --- */
+@keyframes floatHolo {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+/* RESPONSIVE */
+@media screen and (max-width: 768px) {
+    .holo-grid { grid-template-columns: 1fr; }
+    .skills-header h2 { font-size: 2rem; }
+    .tool-item { width: 80px; }
+}

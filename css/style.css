@@ -226,3 +226,32 @@ h2 {
     margin-bottom: 30px;
 }
 
+@media screen and (max-width: 768px) {
+    .category-title {
+        /* 1. Désactive le hack de centrage desktop (left/transform) */
+        left: auto !important;
+        transform: none !important;
+        
+        /* 2. Active le centrage fluide standard */
+        display: block !important;
+        width: 100%;
+        text-align: center;
+        margin-left: 0;
+        margin-right: 0;
+        
+        /* 3. Ajoute des marges de sécurité latérales */
+        padding-left: 20px;
+        padding-right: 20px;
+        box-sizing: border-box;
+        
+        /* 4. Gestion propre des retours à la ligne */
+        white-space: normal;
+        overflow-wrap: break-word;
+    }
+
+    /* S'assure que la ligne décorative reste parfaitement centrée */
+    .category-title::after {
+        left: 50%;
+        transform: translateX(-50%);
+    }
+}

@@ -1,0 +1,188 @@
+/* =========================================
+   EXPERIENCES ROADMAP (PREMIUM NEON)
+   ========================================= */
+
+.xp-section {
+    padding: 100px 5%;
+    background: radial-gradient(circle at 50% 10%, rgba(90, 45, 255, 0.1) 0%, #0D0D0D 60%);
+    position: relative;
+    overflow: hidden;
+}
+
+.xp-header { text-align: center; margin-bottom: 80px; max-width: 800px; margin-left: auto; margin-right: auto; }
+.xp-subtitle { color: rgba(255,255,255,0.7); margin-top: 20px; font-weight: 300; }
+
+/* --- ROADMAP CONTAINER --- */
+.roadmap-container {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+/* NEON WAVE SVG */
+.roadmap-wave {
+    position: absolute;
+    top: 0; left: 50%;
+    transform: translateX(-50%);
+    width: 200px; height: 100%;
+    z-index: 0;
+    pointer-events: none;
+    opacity: 0.6;
+}
+.xp-wave-path {
+    stroke-dasharray: 2000;
+    stroke-dashoffset: 2000;
+    transition: stroke-dashoffset 2.5s ease-out;
+    filter: drop-shadow(0 0 10px rgba(90,45,255,0.8));
+}
+.xp-section.visible .xp-wave-path { stroke-dashoffset: 0; }
+
+/* --- MAIN NODE STRUCTURE --- */
+.xp-node {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 100px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/* ZigZag Desktop */
+@media screen and (min-width: 900px) {
+    .xp-node.left { justify-content: flex-start; padding-left: 5%; }
+    .xp-node.right { justify-content: flex-end; padding-right: 5%; }
+}
+
+/* --- FLIP CARD STYLE --- */
+.xp-card-wrapper {
+    width: 320px; height: 380px;
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.xp-card {
+    position: relative; width: 100%; height: 100%;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+.xp-card.flipped { transform: rotateY(180deg); }
+
+.glass-panel {
+    position: absolute; width: 100%; height: 100%;
+    backface-visibility: hidden;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    transition: 0.4s;
+}
+
+.xp-card:hover .xp-front {
+    box-shadow: 0 0 25px rgba(90, 45, 255, 0.4);
+    border-color: rgba(90, 45, 255, 0.5);
+    transform: translateY(-5px);
+}
+
+.xp-back {
+    transform: rotateY(180deg);
+    background: rgba(15, 15, 25, 0.95);
+    border: 1px solid var(--soft-gold);
+}
+
+/* Card Content */
+.xp-logo-box { font-size: 3rem; margin-bottom: 15px; display: flex; align-items: center; gap: 10px; }
+.xp-logo-box img { width: 50px; height: 50px; object-fit: contain; }
+.xp-front h3 { font-size: 1.4rem; color: var(--white); margin-bottom: 5px; font-weight: 700; line-height: 1.2; }
+.org-name { color: var(--electric-blue); font-weight: 700; font-size: 0.9rem; margin-bottom: 5px; display: block; text-transform: uppercase; }
+.xp-date { color: var(--text-muted); font-size: 0.85rem; font-family: monospace; margin-bottom: 15px; display: block; }
+.xp-tagline { font-size: 0.95rem; font-style: italic; color: rgba(255,255,255,0.9); }
+.hint { margin-top: auto; font-size: 0.75rem; color: var(--soft-gold); opacity: 0.8; }
+
+.xp-back h4 { color: var(--soft-gold); margin-bottom: 20px; font-size: 1.2rem; }
+.xp-back ul { text-align: left; list-style: none; padding: 0; }
+.xp-back li { margin-bottom: 10px; position: relative; padding-left: 20px; font-size: 0.9rem; color: #ddd; }
+.xp-back li::before { content: '•'; color: var(--electric-blue); position: absolute; left: 0; }
+
+.xp-btn {
+    margin-top: auto;
+    padding: 10px 20px;
+    background: var(--electric-blue);
+    color: white; border-radius: 20px; font-size: 0.85rem; font-weight: 600;
+    transition: 0.3s;
+}
+.xp-btn:hover { background: var(--white); color: var(--electric-blue); }
+
+/* --- SUB EVENTS (PHOTOS) --- */
+.sub-events-row {
+    display: flex; flex-direction: column; gap: 20px;
+    margin-bottom: 80px; position: relative; z-index: 1;
+}
+@media screen and (min-width: 900px) {
+    .sub-events-row.right { align-items: flex-end; padding-right: 10%; margin-top: -50px; }
+    .sub-events-row.left { align-items: flex-start; padding-left: 10%; margin-top: -50px; }
+}
+
+.glass-mini {
+    background: rgba(255,255,255,0.05); backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.1); border-radius: 15px;
+    padding: 15px; width: 280px; display: flex; gap: 15px; align-items: center;
+    transition: 0.3s;
+}
+.glass-mini:hover { transform: scale(1.05); background: rgba(255,255,255,0.1); border-color: var(--soft-gold); }
+.glass-mini.large { width: 350px; }
+
+.sub-img { width: 60px; height: 60px; border-radius: 10px; background-size: cover; background-position: center; flex-shrink: 0; background-color: #333; }
+.sub-text h5 { color: var(--soft-gold); font-size: 0.9rem; margin-bottom: 3px; }
+.sub-text p { font-size: 0.75rem; color: rgba(255,255,255,0.7); line-height: 1.3; }
+
+/* --- ORBIT SECTION --- */
+.orbit-section {
+    position: relative; width: 100%; height: 500px;
+    display: flex; justify-content: center; align-items: center;
+    margin: 50px 0 100px 0;
+}
+
+.orbit-center {
+    width: 220px; height: 220px; border-radius: 50%;
+    z-index: 10; display: flex; flex-direction: column; justify-content: center; align-items: center;
+    border: 2px solid var(--electric-blue); box-shadow: 0 0 30px rgba(41, 107, 255, 0.4);
+}
+.sub-img-round { width: 80px; height: 80px; border-radius: 50%; background-size: cover; background-position: center; margin-top: 10px; border: 2px solid white; }
+
+.orbit-ring {
+    position: absolute; width: 450px; height: 450px;
+    border: 1px dashed rgba(255,255,255,0.1); border-radius: 50%;
+    animation: orbitRotate 40s linear infinite;
+}
+
+.planet {
+    position: absolute; top: 0; left: 50%;
+    width: 50px; height: 50px;
+    margin-left: -25px; margin-top: -25px; /* Center on line */
+    background: rgba(0,0,0,0.8); border-radius: 50%;
+    border: 1px solid var(--soft-gold);
+    display: flex; justify-content: center; align-items: center;
+    transform-origin: 50% 225px; /* Radius of orbit */
+    transform: rotate(calc(360deg / 8 * var(--i))) translateY(10px); /* Position initiale */
+}
+/* Counter rotate images to keep them upright */
+.planet img { 
+    width: 70%; height: 70%; object-fit: contain; 
+    animation: counterRotate 40s linear infinite; 
+}
+
+@keyframes orbitRotate { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes counterRotate { from { transform: rotate(0deg); } to { transform: rotate(-360deg); } }
+
+/* RESPONSIVE */
+@media screen and (max-width: 900px) {
+    .roadmap-wave { display: none; }
+    .xp-node { justify-content: center !important; padding: 0 !important; }
+    .sub-events-row { align-items: center !important; padding: 0 !important; margin: 30px 0; }
+    .orbit-ring { width: 300px; height: 300px; }
+    .planet { transform-origin: 50% 150px; }
+}

@@ -187,3 +187,152 @@ document.addEventListener('DOMContentLoaded', () => {
         revealObserver.observe(timelineWrapper);
     }
 });
+
+// =========================================
+// SKILLS SECTION 3D TILT EFFECT
+// =========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    const holoCards = document.querySelectorAll('.holo-card');
+
+    if (holoCards.length > 0) {
+        holoCards.forEach(card => {
+            
+            // Mouse Move: Apply 3D Rotate
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left; // X position within element
+                const y = e.clientY - rect.top;  // Y position within element
+                
+                // Calculate rotation based on cursor position
+                // Center of card is (0,0)
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+                
+                const rotateX = ((y - centerY) / centerY) * -10; // Max 10deg rotation
+                const rotateY = ((x - centerX) / centerX) * 10;
+
+                // Apply transform
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
+                
+                // Move Glow Effect
+                const glow = card.querySelector('.holo-glow');
+                if(glow) {
+                    glow.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(41, 107, 255, 0.4), transparent 70%)`;
+                }
+            });
+
+            // Mouse Leave: Reset
+            card.addEventListener('mouseleave', () => {
+                // Reset transform but keep floating animation (handled by CSS class re-engaging naturally)
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+                
+                const glow = card.querySelector('.holo-glow');
+                if(glow) {
+                    glow.style.background = `radial-gradient(circle at 50% 0%, rgba(41, 107, 255, 0.2), transparent 70%)`;
+                }
+            });
+        });
+    }
+
+    // Scroll Reveal for Skills
+    const skillRevealElements = document.querySelectorAll('.skills-category-container');
+    
+    const skillObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = 1;
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    skillRevealElements.forEach(el => {
+        el.style.opacity = 0;
+        el.style.transform = 'translateY(30px)';
+        el.style.transition = 'all 0.8s ease-out';
+        skillObserver.observe(el);
+    });
+});
+// =========================================
+
+document.addEventListener('DOMContentLoaded', () => {
+    
+    // 1. FLIP CARDS LOGIC
+    const xpCards = document.querySelectorAll('.xp-card-wrapper');
+    xpCards.forEach(wrapper => {
+        wrapper.addEventListener('click', () => {
+            wrapper.querySelector('.xp-card').classList.toggle('flipped');
+        });
+    });
+
+    // 2. PARALLAX TILT EFFECT (3D Hover)
+    const xpPanels = document.querySelectorAll('.xp-front');
+    xpPanels.forEach(panel => {
+        panel.addEventListener('mousemove', (e) => {
+            const rect = panel.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Calcul rotation
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            const rotateX = ((y - centerY) / centerY) * -8;
+            const rotateY = ((x - centerX) / centerX) * 8;
+
+            panel.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+        });
+
+        panel.addEventListener('mouseleave', () => {
+            panel.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+        });
+    });
+
+    // 3. SCROLL REVEAL & WAVE ANIMATION
+    const xpSection = document.getElementById('experiences-roadmap');
+    const xpRevealElements = document.querySelectorAll('.xp-section .scroll-reveal');
+
+    const xpObserver = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                
+                if (entry.target.id === 'experiences-roadmap') {
+                    // Lance l'animation de la ligne SVG
+                    entry.target.classList.add('visible');
+                }
+                observer.unobserve(entry.target);
+            }
+        });
+    }, { threshold: 0.1 });
+
+    if(xpSection) xpObserver.observe(xpSection);
+    xpRevealElements.forEach(el => xpObserver.observe(el));
+
+    // 4. PARTICLES (Optional dynamic background)
+    // Fonction simple pour ajouter des particules si le GPU le permet
+    if (window.innerWidth > 900) {
+        createXpParticles();
+    }
+});
+
+function createXpParticles() {
+    const container = document.querySelector('.xp-section');
+    if(!container) return;
+
+    for(let i=0; i<20; i++) {
+        const p = document.createElement('div');
+        p.style.position = 'absolute';
+        p.style.width = Math.random() * 4 + 'px';
+        p.style.height = p.style.width;
+        p.style.background = Math.random() > 0.5 ? '#5A2DFF' : '#296BFF';
+        p.style.borderRadius = '50%';
+        p.style.opacity = Math.random() * 0.5;
+        p.style.left = Math.random() * 100 + '%';
+        p.style.top = Math.random() * 100 + '%';
+        p.style.animation = `floatHolo ${5 + Math.random() * 10}s infinite`;
+        container.appendChild(p);
+    }
+}
