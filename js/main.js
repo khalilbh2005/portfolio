@@ -2,7 +2,7 @@
 // EMAILJS CONFIGURATION
 // ===============================
 (function () {
-  emailjs.init("4-xhKnglNyPIo1YvC"); // 🔴 REMPLACE ICI
+  emailjs.init("#"); 
 })();
 
 const form = document.getElementById("contact-form");
@@ -24,8 +24,8 @@ form.addEventListener("submit", function (e) {
   statusMsg.textContent = "";
 
   emailjs.sendForm(
-    "service_jq4v8pj",   // 🔴 REMPLACE
-    "template_ymhovcd",  // 🔴 REMPLACE
+    "#",   // 
+    "#",  // 
     form
   ).then(
     () => {
